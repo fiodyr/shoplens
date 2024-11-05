@@ -7,7 +7,6 @@ const withNextIntl = createNextIntlPlugin();
 const config = {
   images: {
     remotePatterns: [
-
       {
         protocol: 'http',
         hostname: '192.168.0.236',
