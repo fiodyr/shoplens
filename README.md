@@ -1,3 +1,58 @@
+# ShopLens 
+ShopLens it's frontend for AtroCore based on Next.js
+
+For quick start this project you need installed AtroCore with demo data, and change hostame in next.config.mjs to you instaled AtroCore and 
+
+```javascript
+const config = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: your AtroCore url,
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
+}
+```
+
+and update your `/config/api.ts`
+
+```javascript
+export const API_CONFIG = {
+  baseURL: your AtroCore url,
+  headers: {
+    'Authorization': your token
+  },
+}
+```
+
+and make come changes in admin panel Atrocore:
+
+1. Add some Entities:
+   - Pages with fields:
+     - products	          Products	          Multiple link	
+     - promotionalBanners	PromotionalBanners	Multiple link	
+     - slides	            Slides	            Multiple link 
+   - Pages Relationships:
+     - Page	page	One-to-Many	products	Product
+     - Page	page	One-to-Many	promotionalBanners	PromotionalBanner
+     - Page	page	One-to-Many	slides	Slide
+2. Slides with fields:
+   - imageUrl	imageUrl	String
+   - linkText	linkText	String
+   - linkUrl	  linkUrl	  String
+3. PromotionalBanner with fields:
+   - imageUrl	imageUrl	String	
+   - isActive	Active	  Boolean	
+   - linkUrl	  linkUrl	  String
+
+After that do `npm run dev` and you can see result in `http:\\localhost:3000`
+
+//*** 
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
