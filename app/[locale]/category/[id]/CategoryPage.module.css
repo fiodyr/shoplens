@@ -1,0 +1,124 @@
+/* app/[locale]/category/[id]/CategoryPage.module.css */
+
+/* Для изображений 
+.imageContainer{
+	width:30px;
+	height:30px;
+	overflow:hidden;
+}
+.imageContainer img {
+  max-width: 100%;
+  height: auto;
+  position:relative;
+  top:-45px;
+}*/
+
+/* Для заголовков */
+.heading h1 {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #837f7f;
+}
+
+/* Для абзацев */
+.paragraph p {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+.categoryGrid a {
+	text-decoration:auto;
+}
+.categoryCard {
+  width: 280px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+.categoryGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Расстояние между карточками */
+  justify-content: center; /* Центрирование карточек */
+}
+
+
+
+
+
+
+
+
+/* app/[locale]/product/[id]/ProductPage.module.css */
+
+/* Для изображений */
+.imageContainer img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Для заголовков */
+.heading h1 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+/* Для абзацев */
+.paragraph p {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.productGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Расстояние между карточками */
+  justify-content: center; /* Центрирование карточек */
+}
+
+.productCard {
+  width: 300px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Высота блока с изображением */
+  overflow: hidden;
+}
+
+.productInfo h2 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.productInfo p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #005bb5;
+}

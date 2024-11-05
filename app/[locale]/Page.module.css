@@ -1,0 +1,61 @@
+.promotionalBanners {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.promotionalBanners img{
+	/*width: -webkit-fill-available;*/
+	width: 100%;
+}
+
+.popularProducts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.productCard {
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: 8px;
+  position: relative;
+}
+.productCard a {
+	text-decoration: none;
+}
+.productCard h3{
+	color:#333;
+	font-size: medium;
+}
+
+.priceInfo {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+	position: absolute;
+    top: 5%;
+    right: 4%;
+}
+.currentPrice {
+  background:#96f700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+.oldPrice {
+  text-decoration: line-through;
+  color: #000;
+  background:#ffd600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.promotionBadge {
+  background: #ff4444;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+.img{
+	width: -webkit-fill-available;
+}

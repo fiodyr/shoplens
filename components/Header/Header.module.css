@@ -1,0 +1,269 @@
+/*.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+}*/
+/* Для изображений */
+.imageContainer{
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    display: inline-block;
+    top: 14px;
+    position: relative;
+}
+.imageContainer img {
+  max-width: 100%;
+  height: auto;
+  position:relative;
+  top:-30px;
+}
+.nav {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
+    padding-left: 56px;
+    padding-right: 56px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftMenu {
+  display: flex;
+  gap: 30px;
+  font-family: MessinaSansWeb, Helvetica, Arial, sans-serif;
+  font-feature-settings: "kern" 1;
+  font-feature-settings: "ss01" off;
+  font-kerning: normal;
+  font-size: 15px;
+  padding-top: 5px;
+  min-width: 287px;
+}
+
+.menuItem {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+}
+
+.menuIcon {
+  position: relative;
+  top: 5px;
+}
+
+.shopLink {
+  cursor: pointer;
+  top: -6px;
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+
+.dropdown a {
+  padding: 5px 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown a:hover {
+  background: #f5f5f5;
+}
+
+.logo {
+  font-size: 24px;
+  position: relative;
+  top: 14px;
+  left: -5em;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #333;
+}
+
+.logo img{
+	width: 280px;
+	aspect-ratio: auto 280 / 85;
+	height: 85px;
+}
+
+.rightMenu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.rightMenu span{
+cursor:pointer;
+} 
+
+.icon, .langIcon {
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #000;
+}
+
+.langIcon {
+	padding-bottom: 10px;
+}
+
+.icon:hover, .langIcon:hover {
+  opacity: 0.7;
+}
+
+.mobileMenuBtn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .logo img{
+	width: 140px;
+	height: 43px;
+  } 
+	
+  .mobileMenuBtn {
+    display: block;
+  }
+
+  .leftMenu {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    display: none;
+  }
+
+  .leftMenu.active {
+    display: flex;
+  }
+
+  .dropdown {
+    position: static;
+    box-shadow: none;
+    border: none;
+    padding-left: 20px;
+  }
+
+  .rightMenu {
+    gap: 10px;
+  }
+  
+  .icon, .langIcon {
+    font-size: 18px;
+  } 
+.langIcon {
+	padding-bottom: 10px;
+}  
+}
+/* Добавьте эти стили к существующим в Header.module.css */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.visible {
+  opacity: 1;
+}
+
+.megaMenu {
+  position: fixed;
+  top: 55px;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 999;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.megaMenu.visible {
+  transform: translateY(0);
+}
+
+.megaMenuContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.megaMenuContent h2 {
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.categories {
+  gap: 20px;
+}
+
+.categories a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  transition: background 0.3s;
+  font-size: 14px;
+}
+
+.categories a:hover {
+  background: #f5f5f5;
+}
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 55px;
+    background: white;
+    box-shadow: 0 3px 30px rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    transition: transform 0.5s ease-in-out;
+    transform: translateY(0);
+}
+
+.header.hidden {
+  transform: translateY(-140%); /* Скрытие хедера вверх */
+}
+
+@media (max-width: 768px) {
+  .categories {
+    grid-template-columns: 1fr;
+  }
+  .logo {
+    font-size: 24px;
+    position: relative;
+    top: 4px;
+    left: -14px;
+  }
+}

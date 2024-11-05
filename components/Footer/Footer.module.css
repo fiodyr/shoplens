@@ -1,0 +1,82 @@
+/* components/Footer.module.css */
+ .footer {
+  background-color: rgb(85, 80, 80);
+  color: rgb(254, 246, 246);
+  padding-left: 56px;
+  padding-right: 56px;
+  display: flex; 
+  justify-content: space-around; 
+  flex-wrap: wrap; 
+  align-items: flex-start; 
+}
+ 
+.columns {
+  display: flex; 
+  justify-content: space-between; 
+  width: 100%; 
+  flex-wrap: wrap;
+  max-width: 1149px;
+}
+
+.column {
+  flex: 1; 
+  min-width: 255px; 
+  margin: 10px; 
+}
+
+.columnHeader {
+  font-size: 0.9rem; 
+  margin-bottom: 10px;
+}
+
+.linkList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  font-size: 0.8rem; 
+  color: rgb(254, 246, 246);
+  text-decoration: none;
+  display: block;
+  margin: 4px 0;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.infblock {
+	position:relative;
+	left: 40px;
+	margin-top:10px;
+}
+
+.infblock, .infblock a {
+	color: rgb(254, 246, 246);
+}
+
+.infblockIcon {
+    position: absolute;
+    left: -38px;
+}
+
+.infblockIcons {
+	position:relative;
+	margin-top:10px;
+}
+
+.infblockIcons a {
+	display: inline-block;
+}
+
+.infblockIcons a{
+	padding:5px;
+}
+
+.columnHeader img {
+	top: 10px;
+    position: relative;
+    left: -15px;
+}

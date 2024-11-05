@@ -1,0 +1,75 @@
+/* components/MainSlider/MainSlider.module.css */
+.sliderWrapper {
+  width: 100%;
+  max-width: 1600px;
+  /*margin: 0 auto;
+  padding: 0 20px;*/
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: relative;
+  height: 160px;
+  border:1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.slideLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.slideImageWrapper {
+  position: relative;
+  width: 70%;
+  height: 70%;
+  margin:auto;
+}
+
+.slideImage {
+  object-fit: cover;
+}
+
+.slideName {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  color: black;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Создаем обертку для кнопок навигации */
+.navigationButtons :global(.swiper-button-next),
+.navigationButtons :global(.swiper-button-prev) {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.navigationButtons :global(.swiper-button-next::after),
+.navigationButtons :global(.swiper-button-prev::after) {
+  font-size: 20px;
+}
+
+/* Создаем обертку для пагинации */
+.pagination :global(.swiper-pagination-bullet) {
+  background: #fff;
+  opacity: 0.5;
+}
+
+.pagination :global(.swiper-pagination-bullet-active) {
+  opacity: 1;
+}

@@ -1,0 +1,36 @@
+
+@media (min-width: 1440px) {
+    .gridContainer {
+        padding-left: 56px;
+        padding-right: 56px;
+    }
+}
+@media (min-width: 1025px) {
+    .gridContainer {
+        padding-left: 56px;
+        padding-right: 56px;
+    }
+}
+@media (min-width: 768px) {
+    .gridContainer {
+        padding-left: 56px;
+        padding-right: 56px;
+    }
+}
+.gridContainer {
+	/*font-family: 'MessinaSansWeb,Helvetica,Arial,sans-serif';  */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
+    padding-left: 45px;
+    padding-right: 56px;
+	padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+}
+
+
+.mainContent {
+  margin-bottom: auto;
+}
