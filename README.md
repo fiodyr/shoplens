@@ -1,5 +1,6 @@
 # ShopLens 
-ShopLens it's frontend for AtroCore based on Next.js
+
+ShopLens it's frontend for AtroCore based on Next.js #atrocore #nextjs #frontend
 
 For quick start this project you need installed AtroCore with demo data, and change hostame in next.config.mjs to you instaled AtroCore and 
 
