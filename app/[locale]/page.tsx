@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import MainSlider from '@/components/MainSlider/MainSlider';
 import { useEffect, useState } from 'react';
 import styles from './Page.module.css';
+import { API_CONFIG } from '@/config/api.config';
 
 interface Slide {
   id: string;
@@ -53,9 +54,13 @@ export default function Home() {
   useEffect(() => {
     const fetchHomeData = async () => {
       try {
-        const response = await fetch('http://192.168.0.236/api/v1/Page?select=name,slides,promotionalBanners,products&where=[{"type":"and","value":[{"type":"equals","attribute":"name","value":"Home"}]}]&maxSize=1`', {
+        const response = await fetch(
+          `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.PAGE}?` + 
+          `select=${API_CONFIG.QUERY_PARAMS.PAGE.HOME_SELECT}&` +
+          `where=${JSON.stringify(API_CONFIG.QUERY_PARAMS.PAGE.HOME_WHERE)}&` +
+          `maxSize=${API_CONFIG.PAGINATION.DEFAULT_MAX_SIZE}`, {
           headers: {
-            'Authorization': 'Basic dXNlcjphNzhjNjE5ZjEzZWE3YjJhYTFlMjUzZTJkMjYxMzJjYQ==',
+            'Authorization': `Basic ${API_CONFIG.AUTH.BASIC_TOKEN}`,
           },
         });
         if (!response.ok) {
@@ -119,26 +124,26 @@ export default function Home() {
             <div key={product.id} className={styles.productCard}>
               <a href={`/product/${product.sku}`} >
 				<img 
-				  src={`http://192.168.0.236/${product.mainImagePathsData.thumbnails.medium}`} 
+				  src={`${API_CONFIG.BASE_URL}/${product.mainImagePathsData.thumbnails.medium}`} 
 				  alt={product.name} 
 				  className={styles.img}
 				/>
                 <h3>{product.name}</h3>
                 <div className={styles.priceInfo}>
-					{product.isActive && (
-					  <>
-						{product.price !== null && (
-						  <span className={styles.currentPrice}>
-							{product.priceUnitData.symbol}{product.price}
-						  </span>
-						)}
-						{product.isActive > 0 && (
-						  <span className={styles.oldPrice}>
-							{product.priceUnitData.symbol}
-						  </span>
-						)}
-					  </>
-					)}
+                    {product.isActive && (
+                      <>
+                        {product.price !== null && (
+                          <span className={styles.currentPrice}>
+                            {product.priceUnitData.symbol}{product.price}
+                          </span>
+                        )}
+                        {product.rrp > 0 && (
+                          <span className={styles.oldPrice}>
+                            {product.priceUnitData.symbol}{product.rrp}
+                          </span>
+                        )}
+                      </>
+                    )}
                 </div>
               </a>
             </div>

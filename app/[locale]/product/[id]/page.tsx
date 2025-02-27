@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 import styles from './ProductPage.module.css';
+import { API_CONFIG } from '@/config/api.config';
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   const [productData, setProductData] = useState<any>(null);
@@ -13,9 +14,9 @@ export default function ProductPage({ params }: { params: { id: string } }) {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://192.168.0.236/api/v1/Product`, {
+        const response = await axios.get(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.PRODUCT}`, {
           params: {
-            select: 'name,sku,price,longDescription,mainImagePathsData',
+            select: API_CONFIG.QUERY_PARAMS.PRODUCT.DEFAULT_SELECT,
             where: JSON.stringify([`{
               "type": "or",
               "value": [
@@ -26,10 +27,10 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 }
               ]
             }`]),
-            maxSize: params.id === 'all' ? 20 : 1
+            maxSize: params.id === 'all' ? API_CONFIG.PAGINATION.ALL_PRODUCTS_SIZE : API_CONFIG.PAGINATION.DEFAULT_MAX_SIZE
           },
           headers: {
-            'Authorization': 'Basic dXNlcjphNzhjNjE5ZjEzZWE3YjJhYTFlMjUzZTJkMjYxMzJjYQ==',
+            'Authorization': `Basic ${API_CONFIG.AUTH.BASIC_TOKEN}`,
           },
         });
 
@@ -50,8 +51,9 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           setError('No product found');
         }
       } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : 'Произошла неизвестная ошибка';
         console.error('Error fetching product:', error);
-        setError(error.message);
+        setError(errorMessage);
       } finally {
         setLoading(false);
       }
@@ -71,7 +73,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           <Link href={product.url} key={product.id}>
             <div className={styles.productCard}>
               <div className={styles.imageContainer}>
-                <img src={`http://192.168.0.236/${product.image}`} width={150} alt={product.name} />
+                <img src={`http://192.168.1.236/${product.image}`} width={150} alt={product.name} />
               </div>
               <div className={styles.productInfo}>
                 <h2>{product.name}</h2>
@@ -101,7 +103,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
       </div>
       <p>{productData.price} €</p>
       <div>
-        <img src={`http://192.168.0.236/${productData.image}`} width={350} alt={productData.name} />
+        <img src={`http://192.168.1.236/${productData.image}`} width={350} alt={productData.name} />
       </div>
       <button className={styles.button}>Add to Cart</button>
     </div>

@@ -9,13 +9,13 @@ const config = {
     remotePatterns: [
       {
         protocol: 'http',
-        hostname: '192.168.0.236',
+        hostname: '192.168.1.236',
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'http',
-        hostname: '192.168.0.236',
+        hostname: '192.168.1.236',
         port: '3000',
         pathname: '/**',
       }

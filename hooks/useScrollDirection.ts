@@ -1,7 +1,7 @@
 // hooks/useScrollDirection.js
 import { useEffect, useState } from "react";
 
-export default function useScrollDirection(onHide,isFilterOpen) {
+export default function useScrollDirection(onHide: () => void, isFilterOpen: boolean) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [visible, setVisible] = useState(true);
 

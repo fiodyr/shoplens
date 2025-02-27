@@ -2,12 +2,33 @@
 import styles from './CategoryPage.module.css';
 import Link from 'next/link';
 import axios from 'axios';
+import { API_CONFIG } from '@/config/api.config';
 
-async function getCategories(id: string) {
+interface Product {
+  id: string;
+  sku: string;
+  name: string;
+  price: number;
+  mainImagePathsData?: {
+    thumbnails?: {
+      medium?: string;
+    };
+  };
+}
+
+interface Category {
+  id: string;
+  code: string;
+  name: string;
+  children: Category[];
+  products: Product[];
+}
+
+async function getCategories(id: string): Promise<Category[]> {
   try {
-    const response = await axios.get(`http://192.168.0.236/api/v1/Category`, {
+    const response = await axios.get(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.CATEGORY}`, {
       params: {
-        select: 'name, code, children, products',
+        select: API_CONFIG.QUERY_PARAMS.CATEGORY.DEFAULT_SELECT,
         where: JSON.stringify([`{
           "type": "or",
           "value": [
@@ -18,10 +39,10 @@ async function getCategories(id: string) {
             }
           ]
         }`]),
-        maxSize: id === 'all' ? 100 : 1
+        maxSize: id === 'all' ? API_CONFIG.PAGINATION.ALL_CATEGORIES_SIZE : API_CONFIG.PAGINATION.DEFAULT_MAX_SIZE
       },
       headers: {
-        'Authorization': 'Basic dXNlcjphNzhjNjE5ZjEzZWE3YjJhYTFlMjUzZTJkMjYxMzJjYQ=='
+        'Authorization': `Basic ${API_CONFIG.AUTH.BASIC_TOKEN}`
       }
     });
 
@@ -62,7 +83,11 @@ export default async function CategoryPage({ params }: { params: { id: string } 
                   <Link href={`/product/${product.sku}`} key={product.id}>
                     <div className={styles.productCard}>
                       <div className={styles.imageContainer}>
-                        <img src={`http://192.168.0.236/${product.mainImagePathsData?.thumbnails?.medium}`} width={150} alt={product.name} />
+                        <img 
+                          src={`${API_CONFIG.BASE_URL}/${product.mainImagePathsData?.thumbnails?.medium}`} 
+                          width={150} 
+                          alt={product.name} 
+                        />
                       </div>
                       <div className={styles.productInfo}>
                         <h2>{product.name}</h2>
