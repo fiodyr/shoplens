@@ -1,5 +1,6 @@
 # ShopLens 
-ShopLens it's frontend for AtroCore based on Next.js
+
+ShopLens it's frontend for AtroCore based on Next.js #atrocore #nextjs #frontend
 
 For quick start this project you need installed AtroCore with demo data, and change hostame in next.config.mjs to you instaled AtroCore and 
 
@@ -33,13 +34,13 @@ and make come changes in admin panel Atrocore:
 
 1. Add some Entities:
    - Pages with fields:
-     - products	          Products	          Multiple link	
-     - promotionalBanners	PromotionalBanners	Multiple link	
-     - slides	            Slides	            Multiple link 
+     - products	          	Multiple link	
+     - promotionalBanners		Multiple link	
+     - slides	              Multiple link 
    - Pages Relationships:
-     - Page	page	One-to-Many	products	Product
-     - Page	page	One-to-Many	promotionalBanners	PromotionalBanner
-     - Page	page	One-to-Many	slides	Slide
+     - Page	page	One-to-Many	products	
+     - Page	page	One-to-Many	promotionalBanners	
+     - Page	page	One-to-Many	slides	
 2. Slides with fields:
    - imageUrl	imageUrl	String
    - linkText	linkText	String
